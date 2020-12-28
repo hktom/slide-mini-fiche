@@ -9,7 +9,7 @@ function simple_field($label, $field, $icon='')
 
  <div class="my-1">
        <div class="d-flex justify-content-start mt-4">
-       <div class="mini_fiche_slide_label" style="margin-right:5px">
+       <div class="title_icon <?php echo $label;?>" style="margin-right:5px">
            <i class="<?php echo $icon['value'];?>"></i>
         </div>
        <div class="mini_fiche_slide_content"><?php the_field($field);?> </div>
@@ -76,7 +76,7 @@ function secteurs_terms_field($field, $label, $icon='')
     if($icon!=''){
 
         echo '<div class="mt-4 d-flex justify-content-start">
-       <div class="mini_fiche_slide_label" style="margin-right:5px">
+       <div class="title_icon '.$label.'" style="margin-right:5px">
        <i class="'.$icon['value'].'"></i> 
        </div>
        <div class="mini_fiche_slide_content">';

@@ -124,7 +124,7 @@
       <div class="container-fluid w-100 px-0">
        <div class="row">
        <div class="col-12">
-       <div class=""><?php echo $fields['last_update'];?> : <?php renderData(get_the_date('j/m/Y'), $settings['language']); ?></div>
+       <div class="date-mini-fiche"><?php echo $fields['last_update'];?> : <?php renderData(get_the_date('j/m/Y'), $settings['language']); ?></div>
        <div class="mini-fiche-title"><?php echo get_the_title(); ?></div>
        <img class="w-100" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"/>
        </div>
@@ -147,14 +147,14 @@
 
     <?php
 
-        simple_field($fields['native_country'], "pays_enreg_structure", $settings['native_country_icon']);
+        simple_field($settings['title_icon_size'], "pays_enreg_structure", $settings['native_country_icon']);
         
         $k = 0;
         foreach ($fields as $key => $value) {
             if ($k != 5 && $k != 0) {
                 simple_field($value, $key);
             } else if ($k == 0) {
-                secteurs_terms_field($key, $value, $settings['terms_icon']);
+                secteurs_terms_field($key, $settings['title_icon_size'], $settings['terms_icon']);
                 countries_field($fields['region_impacted']);
             } else {
                 compose_field("type_fonds", "montant_fonds", $value);

@@ -103,6 +103,42 @@ class Slide_Mini_Fiche extends Widget_Base {
 
 
 		$this->start_controls_section(
+			'date',
+			[
+				'label' => __( 'Date', self::$slug ),
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'date_style',
+				'label' => __( 'Font', 'self::$slug' ),
+				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .date-mini-fiche',
+			]
+		);
+
+		$this->add_control(
+			'date_color',
+			[
+				'label' => __( 'Color', self::$slug ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .date-mini-fiche' => 'color: {{VALUE}}',
+				],
+			]
+			);
+
+		$this->end_controls_section();
+
+
+		$this->start_controls_section(
 			'icon',
 			[
 				'label' => __( 'Icon', self::$slug ),
@@ -520,6 +556,40 @@ class Slide_Mini_Fiche extends Widget_Base {
 				'type' => \Elementor\Controls_Manager::ICONS,
 			]
 		);
+
+
+		$this->add_control(
+			'title_icon_size',
+			[
+				'label' => __( 'Size', self::$slug ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'h6',
+				'options' => [
+					'h1'  => __( 'XX-Large', self::$slug ),
+					'h2' => __( 'X-Large', self::$slug ),
+					'h3' => __( 'Large', self::$slug ),
+					'h4' => __( 'Medium', self::$slug ),
+					'h5' => __( 'Small', self::$slug ),
+					'h6' => __( 'Very Small', self::$slug ),
+					
+				],
+			]
+		);
+
+		$this->add_control(
+			'title_icon_color',
+			[
+				'label' => __( 'Color', self::$slug ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .title_icon' => 'color: {{VALUE}}',
+				],
+			]
+			);
 
 		$this->end_controls_section();
 
