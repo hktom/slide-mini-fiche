@@ -34,7 +34,7 @@
   cursor:pointer !important;
   /* -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
   box-shadow: 0 5px 15px rgba(0, 0, 0, .5); */
-  background: #F2AB34;
+  /* background: #F2AB34; */
   /* border-radius: 15px 0px 0px 15px */
 }
 
@@ -43,7 +43,7 @@
   position: relative;
   right: 70px;
   top: 90px;
-  background: #F2AB34;
+  /* background: #F2AB34; */
   width: 180px;
   -webkit-transform: rotate(270deg);
   -moz-transform: rotate(270deg);
@@ -106,7 +106,7 @@
 <!--   // Tab -->
   <div class="slideOutTab">
     <div>
-      <p>Mini Fiche</p>
+    <?php echo $fields['about'];?>
     </div>
   </div>
   
@@ -123,14 +123,16 @@
 
       <div class="container-fluid w-100 px-0">
        <div class="row">
-       <div class="col-12">
+       
        <div class="date-mini-fiche"><?php echo $fields['last_update'];?> : <?php renderData(get_the_date('j/m/Y'), $settings['language']); ?></div>
+
+       <div class="col-6">
        <div class="mini-fiche-title"><?php echo get_the_title(); ?></div>
        <img class="w-100" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"/>
        </div>
 
-       <div class="col-12">
-          <div class="container-fluid px-0 mt-3">
+       <div class="col-6">
+          <div class="container-fluid px-0" style="margin-top:50%">
           <?php button_icon('lien_vers_la_solution', $settings['website_icon'], 'mini_fiche_color_icon_1', 'mini_fiche_bgcolor_icon_1', $settings['size_icon_1'], $fields['website_link']);?>
           
           <?php button_icon('adress_mail_contact', $settings['email_icon'], 

@@ -148,6 +148,7 @@ $fields_fr = [
     "email_link" => "Ecrire un email",
     "native_country" => "Pays d’enregistrement de la structure",
     "region_impacted" => "Pays de déploiement",
+    "about" => "A propos de la solution",
     
 ];
 
@@ -167,6 +168,7 @@ $fields_en = [
     "email_link" => "Send en email",
     "native_country" => "Native country",
     "region_impacted" => "Regions impacted",
+    "about" => "About the solution",
 ];
 
 
