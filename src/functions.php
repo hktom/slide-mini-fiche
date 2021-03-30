@@ -71,7 +71,7 @@ function countries_field($label)
 function secteurs_terms_field($field, $label, $icon='')
 {
 
-    $terms = get_terms(array('taxonomy' => 'mf_secteurs'));
+    $terms = get_the_terms($query->ID, 'mf_secteurs');
 
     if($icon!=''){
 
@@ -148,7 +148,7 @@ $fields_fr = [
     "email_link" => "Ecrire un email",
     "native_country" => "Pays d’enregistrement de la structure",
     "region_impacted" => "Pays de déploiement",
-    "about" => "A propos de la solution",
+    "about" => "A propos",
     
 ];
 
@@ -168,14 +168,15 @@ $fields_en = [
     "email_link" => "Send en email",
     "native_country" => "Native country",
     "region_impacted" => "Regions impacted",
-    "about" => "About the solution",
+    "about" => "About",
 ];
 
 
 function button_icon($field, $icon, $color, $bgColor, $icon_size, $label){
     if(get_field($field)!=""){
+        //'.get_field($field).'
         echo '
-    <a target="_blank" title="'.$label.'" href="'.get_field($field).'" style="transition:0.2s" class="p-2 '.$icon_size.' '.$bgColor.' '.$color.' 
+    <a target="_blank" title="'.$label.'" href="#" style="transition:0.2s" class="p-2 '.$icon_size.' '.$bgColor.' '.$color.' 
     "><i class="'.$icon['value'].'"></i></a>';
     }
 }

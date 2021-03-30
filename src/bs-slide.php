@@ -1,104 +1,6 @@
 <?php $fields=$settings['language']=='fr'?$fields_fr:$fields_en;?>
-<style type="text/css">
-
-#slideOut {
-  margin-top:165px;
-  position: fixed;
-  width: 350px;
-  z-index:8888 !important;
-  /* height: 800px; */
-  top: 30px;
-  right: -350px;
-  /* Animation  */
-  transition-property: all;
-  transition-duration: .5s;
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-
-/* Display slideOut */
-
-.showSlideOut {
-  right: 0px !important;
-}
-
-
-/* Tab */
-
-.slideOutTab {
-  margin-top: 50px;
-  position: absolute;
-  left: -40px;
-  height: 200px;
-  width: 40px;
-  cursor:pointer !important;
-  /* -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, .5); */
-  /* background: #F2AB34; */
-  /* border-radius: 15px 0px 0px 15px */
-}
-
-.slideOutTab div {
-  text-align: center;
-  position: relative;
-  right: 70px;
-  top: 90px;
-  /* background: #F2AB34; */
-  width: 180px;
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  writing-mode: lr-tb;
-}
-
-.modal-content{
-  border-radius: 0px !important;
-}
-
-.modal-body {
-    height: 500px;
-    overflow-y: scroll;
-    border-radius: 0px !important;
-}
-
-/* width */
-.modal-body::-webkit-scrollbar{
-  width: 7px;
-}
-
-/* .modal-body::-moz-scrollbar{
-  width: 10px;
-} */
-
-/* Track */
-.modal-body::-webkit-scrollbar-track{
-  background: transparent; 
-}
-
-/* .modal-body::-moz-scrollbar-track {
-  background: #f1f1f1; 
-} */
- 
-/* Handle */
-.modal-body::-webkit-scrollbar-thumb{
-  background: #DA4039; 
-}
-
-/* .modal-body::-moz-scrollbar-thumb {
-  background: #888; 
-} */
-
-/* Handle on hover */
-.modal-body::-webkit-scrollbar-thumb:hover{
-  background: #DA4039; 
-}
-
-/* .modal-body::-moz-scrollbar-thumb:hover{
-  background: #555; 
-} */
-
-
-</style>
+<style type="text/css"></style>
+<link href="<?php echo plugin_dir_url( __DIR__ ).'/src/main.css';?>" rel="stylesheet">
 
 
 <!-- // SlideOut -->
@@ -125,11 +27,15 @@
        <div class="row">
        
        <div class="date-mini-fiche"><?php echo $fields['last_update'];?> : <?php renderData(get_the_date('j/m/Y'), $settings['language']); ?></div>
-
-       <div class="col-6">
+       
        <div class="mini-fiche-title"><?php echo get_the_title(); ?></div>
+       
+       <?php if(get_the_post_thumbnail_url(get_the_ID(), 'full')):?>
+       
+       <div class="col-6">
        <img class="w-100" src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>"/>
        </div>
+       <?php endif;?>
 
        <div class="col-6">
           <div class="container-fluid px-0" style="margin-top:50%">
@@ -184,6 +90,5 @@ $("#slideOut").toggleClass('showSlideOut');
 this.$slideOut.find('.slideOutTab').on('click', function() {
   $("#slideOut").toggleClass('showSlideOut');
 });
-
 
 </script>
