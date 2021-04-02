@@ -3,7 +3,7 @@
  * Plugin Name: Slide Mini Fiche
  * Description: Display Slide Mini Fiche
  * Plugin URI:  https://github.com/hktom/elementor-map-listing-post
- * Version:     2.0.2
+ * Version:     3.0.0
  * Author:      Tom Hikari
  * Author URI:  https://github.com/hktom/
  * Text Domain: slide-mini-fiche

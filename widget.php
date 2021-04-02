@@ -32,6 +32,6 @@ class Slide_Mini_Fiche extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		include plugin_dir_path( __FILE__ ) . '/src/index.php';
+		include plugin_dir_path( __FILE__ ) . '/index.php';
 	}
 }
