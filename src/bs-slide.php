@@ -51,7 +51,7 @@
 
         echo simple_field($label['description_solution'], $data[0]['description_de_la_solution']);
 
-        echo simple_field($label['categorie_solution'], $data[0]['categorie']);
+        //echo simple_field($label['categorie_solution'], $data[0]['categorie']);
 
         echo simple_field($label['stade_de_developpement'], $data[0]['stade']);
 

@@ -1,16 +1,15 @@
 <?php
 /**
- * Plugin Name: Slide Mini Fiche
- * Description: Display Slide Mini Fiche
+ * Plugin Name: Mini-fiche slide
+ * Description: Extension permettant d'afficher la mini-fiche pour les usecases 
  * Plugin URI:  https://github.com/hktom/elementor-map-listing-post
- * Version:     3.0.0
+ * Version:     1.0.0
  * Author:      Tom Hikari
  * Author URI:  https://github.com/hktom/
- * Text Domain: slide-mini-fiche
+ * Text Domain: mini-fiche-slide
  */
-namespace Slide_Mini_Fiche;
+namespace mini_fiche_slide;
 use Elementor\Plugin;
-//include(dirname(__FILE__)."/assets.php");
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -18,10 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // we delay the class' use until Elementor widgets are registered
 add_action( 'elementor/widgets/widgets_registered', function() {
 	require_once('widget.php');
-
-	$slide_mini_fiche =	new Slide_mini_fiche();
+	$mini_fiche_slide =	new mini_fiche_slide();
 
 	// Let Elementor know about our widget
-	Plugin::instance()->widgets_manager->register_widget_type($slide_mini_fiche);
+	Plugin::instance()->widgets_manager->register_widget_type($mini_fiche_slide);
 });
 

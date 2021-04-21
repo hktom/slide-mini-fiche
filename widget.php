@@ -1,14 +1,17 @@
 <?php
-namespace Slide_Mini_Fiche;
-
+namespace mini_fiche_slide;
 use Elementor\Repeater;
 use Elementor\Widget_Base;
-
+require_once('function.php');
+//include plugin_dir_path( __FILE__ ) . '/function.php';
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+?>
 
-//include plugin_dir_path( __FILE__ ) . '/vue_map.php';
+<link href="<?php echo plugin_dir_url( __DIR__ ).'slide-mini-fiche/css/main.css';?>" rel="stylesheet">
 
-class Slide_Mini_Fiche extends Widget_Base {
+<?php
+
+class mini_fiche_slide extends Widget_Base {
 
 	public static $slug = 'slide_mini_fiche';
 
@@ -22,16 +25,22 @@ class Slide_Mini_Fiche extends Widget_Base {
 
 	protected function _register_controls() {
 
-		include plugin_dir_path( __FILE__ ) . '/controllers/title.php';
-		include plugin_dir_path( __FILE__ ) . '/controllers/date.php';
-		include plugin_dir_path( __FILE__ ) . '/controllers/icon.php';
-		include plugin_dir_path( __FILE__ ) . '/controllers/title_content.php';
-		include plugin_dir_path( __FILE__ ) . '/controllers/float_button.php';
+		require_once('controllers/title.php');
+		require_once('controllers/date.php');
+		require_once('controllers/icon.php');
+		require_once('controllers/title_content.php');
+		require_once('controllers/float_button.php');
 
 	}
 
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-		include plugin_dir_path( __FILE__ ) . '/index.php';
+
+		if(isset(get_field("lien_de_la_mini_fiche")[0])){
+			$settings = $this->get_settings_for_display();
+			require_once('int.php');
+			$data=get_data_slide_mini_fiche(['post_type'=>'mini_fiche', 'post_in'=>array(get_field("lien_de_la_mini_fiche")[0])]);
+			require_once('src/component.php');
+		    require_once('src/bs-slide.php');
+		}
 	}
 }
